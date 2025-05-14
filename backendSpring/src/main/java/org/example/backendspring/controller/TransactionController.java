@@ -34,5 +34,10 @@ public class TransactionController {
                 .orElse(null);
     }
 
+    @PutMapping("/{id}")
+    public Transaction modifier(@PathVariable Long id, @RequestBody Transaction t) {
+        return transaction.modifierTransaction(id, t);
+    }
+
 
     }
