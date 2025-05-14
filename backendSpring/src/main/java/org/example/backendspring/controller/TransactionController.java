@@ -39,5 +39,9 @@ public class TransactionController {
         return transaction.modifierTransaction(id, t);
     }
 
+    @DeleteMapping("/{id}")
+    public void supprimer(@PathVariable Long id) {
+        transaction.supprimerTransaction(id);
+    }
 
     }
