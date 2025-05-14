@@ -23,4 +23,16 @@ public class TransactionController {
         return transaction.ajouterTransaction(t);
     }
 
+    @GetMapping
+    public List<Transaction> listerTransactions() {
+        return transaction.listerTransactions();
+    }
+
+    @GetMapping("/{id}")
+    public Transaction getById(@PathVariable Long id) {
+        return transaction.getTransactionById(id)
+                .orElse(null);
+    }
+
+
     }
