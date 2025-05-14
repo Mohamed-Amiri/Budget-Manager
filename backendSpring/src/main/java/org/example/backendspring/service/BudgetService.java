@@ -23,27 +23,5 @@ public class BudgetService {
 
     }
 
-     public budget getBudgetByID(long id){
-           return repository.findById(id).orElse(null);
-     }
-
-     public void  deletBudgetBYId(long id){
-        repository.deleteById(id);
-
-     }
-
-    public List<budget> getBudgets() {
-        return repository.findAll();
-    }
-    public Optional<budget> updatesBudget(long id,budget bg) {
-        return repository.findById(id)
-                .map(budget -> {
-                    budget.setMontant(bg.getMontant());
-                    budget.setEnum(bg.getEnum());
-                    budget.setDate(bg.getDate());
-                    return repository.save(budget);
-                });
-
-    }
 
 }
