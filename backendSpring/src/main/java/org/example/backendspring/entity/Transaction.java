@@ -1,31 +1,31 @@
 package org.example.backendspring.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import java.util.Date;
+import java.sql.Date;
+
 
 @Entity
 public class Transaction {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
 
-    @Column
+//    @Column
     private double Montant;
 
-    @Column
+//    @Column
     private Date date;
 
-    @Column
+   // @Column
     private String Description;
 
-    @Column
+    //@Column
     private String Type ;
 
-    @Column
+    //@Column
     private String label;
 
 
