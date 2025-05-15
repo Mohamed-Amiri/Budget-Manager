@@ -21,6 +21,7 @@ public class budget {
     @Column
     private Date date;
 
+    
     public Long getId() {
         return id;
     }

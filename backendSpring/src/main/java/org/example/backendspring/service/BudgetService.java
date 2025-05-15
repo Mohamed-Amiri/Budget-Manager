@@ -1,6 +1,8 @@
 package org.example.backendspring.service;
 
+import org.example.backendspring.dto.BudgetDto;
 import org.example.backendspring.entity.budget;
+import org.example.backendspring.mapper.BudgetMapper;
 import org.example.backendspring.repository.budgetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,8 +25,12 @@ public class BudgetService {
 
     }
 
-     public budget getBudgetByID(long id){
-           return repository.findById(id).orElse(null);
+     public BudgetDto getBudgetByID(long id){
+            Optional<budget> budg = this.repository.findById(id);
+            if(budg.isPresent()){
+                return BudgetMapper.toDto(budg.get());
+            }
+        return null;
      }
 
      public void  deletBudgetBYId(long id){

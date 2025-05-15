@@ -1,4 +1,5 @@
 package org.example.backendspring.controller;
+import org.example.backendspring.dto.BudgetDto;
 import org.example.backendspring.entity.budget;
 import org.example.backendspring.service.BudgetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class budgetController {
         return ("budget added successfully");
     }
     @GetMapping("/{id}")
-    public budget getBudget(@PathVariable long id){
+    public BudgetDto getBudget(@PathVariable long id){
         return service.getBudgetByID(id);
     }
     @GetMapping("/All")
