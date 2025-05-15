@@ -11,21 +11,10 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-
-//    @Column
     private double Montant;
-
-//    @Column
     private Date date;
-
-   // @Column
     private String Description;
-
-    //@Column
     private String Type ;
-
-    //@Column
     private String label;
 
 
