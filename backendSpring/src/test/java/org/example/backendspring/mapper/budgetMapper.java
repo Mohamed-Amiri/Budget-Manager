@@ -2,7 +2,10 @@ package org.example.backendspring.mapper;
 
 import org.example.backendspring.dto.BudgetDto;
 import org.example.backendspring.entity.budget;
-@Mapper(componentModel = "spring")
+import org.springframework.stereotype.Component;
+
+@Component
+//@Mapper(componentModel = "spring")
 public class budgetMapper {
     BudgetDto toDto(budget entity) {
         return null;
