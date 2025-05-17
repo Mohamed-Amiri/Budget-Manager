@@ -15,12 +15,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version> <!-- تأكد من توافق هذه النسخة مع Java -->
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>3.2.5</version>
+        <relativePath/>
     </parent>
 
     <properties>
-        <java.version>17</java.version> <!-- أو 21 حسب JDK المستعمل -->
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>
@@ -43,21 +43,21 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Spring Boot DevTools (اختياري للتطوير فقط) -->
+        <!-- Spring Boot DevTools -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Lombok (اختياري لتقليل الكود) -->
+        <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!-- اختبار -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -67,7 +67,7 @@
 
     <build>
         <plugins>
-            <!-- Plugin لتشغيل Spring Boot -->
+            <!-- Plugin Spring Boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

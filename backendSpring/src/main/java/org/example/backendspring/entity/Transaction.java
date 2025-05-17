@@ -1,9 +1,6 @@
 package org.example.backendspring.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -29,10 +26,9 @@ public class Transaction {
     @Column
     private String label;
 
-    // made by Amiri
     @ManyToOne
+    @JoinColumn(name = "budget_id")
     private Budget budget;
-
 
     public double getMontant() {
         return Montant;
