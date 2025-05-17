@@ -2,21 +2,33 @@ package org.example.backendspring.entity;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
-
+import java.util.Date;
 
 @Entity
 public class Transaction {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+
+    @Column
     private double Montant;
+
+    @Column
     private Date date;
+
+    @Column
     private String Description;
+
+    @Column
     private String Type ;
+
+    @Column
     private String label;
 
+    @ManyToOne
+    @JoinColumn(name = "budget_id")
+    private Budget budget;
 
     public double getMontant() {
         return Montant;

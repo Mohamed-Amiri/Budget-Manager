@@ -3,6 +3,7 @@ package org.example.backendspring.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.List;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Date;
 @Setter
 @Getter
 @Entity
-public class budget {
+public class Budget {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
@@ -21,7 +22,9 @@ public class budget {
     @Column
     private Date date;
 
-    
+    @OneToMany(mappedBy = "budget", cascade = CascadeType.ALL)
+    private List<Transaction> transactions;
+
     public Long getId() {
         return id;
     }
@@ -54,14 +57,14 @@ public class budget {
         this.date = date;
     }
 
-    public budget(Long id, double montant, String anEnum, Date date) {
+    public Budget(Long id, double montant, String anEnum, Date date) {
         this.id = id;
         this.montant = montant;
         Enum = anEnum;
         this.date = date;
     }
 
-    public budget() {
+    public Budget() {
     }
 
     @Override

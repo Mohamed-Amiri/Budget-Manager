@@ -1,55 +1,55 @@
 package org.example.backendspring.service;
 
 import org.example.backendspring.dto.BudgetDto;
-import org.example.backendspring.entity.budget;
+import org.example.backendspring.entity.Budget;
 import org.example.backendspring.mapper.BudgetMapper;
-import org.example.backendspring.repository.budgetRepository;
+import org.example.backendspring.repository.BudgetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class BudgetService {
 
-    private final budgetRepository repository;
-     @Autowired
-     public BudgetService(final budgetRepository repository){
+    private final BudgetRepository repository;
 
-         this.repository = repository;
-     }
-
-    public  void saveBudget (budget budget){
-      repository.save(budget);
-
+    @Autowired
+    public BudgetService(BudgetRepository repository) {
+        this.repository = repository;
     }
 
-     public BudgetDto getBudgetByID(long id){
-            Optional<budget> budg = this.repository.findById(id);
-            if(budg.isPresent()){
-                return BudgetMapper.toDto(budg.get());
-            }
-        return null;
-     }
+    public Budget saveBudget(Budget budget) {
+      return   repository.save(budget);
+    }
 
-     public void  deletBudgetBYId(long id){
-        repository.deleteById(id);
+    public BudgetDto getBudgetByID(long id) {
+        return repository.findById(id)
+                .map(BudgetMapper::toDto)
+                .orElse(null);
+    }
 
-     }
+    public boolean deleteBudgetById(long id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 
-    public List<budget> getBudgets() {
+    public List<Budget> getBudgets() {
         return repository.findAll();
     }
-    public Optional<budget> updatesBudget(long id,budget bg) {
+
+    public Optional<Budget> updatesBudget(long id, Budget updatedBudget) {
         return repository.findById(id)
-                .map(budget -> {
-                    budget.setMontant(bg.getMontant());
-                    budget.setEnum(bg.getEnum());
-                    budget.setDate(bg.getDate());
-                    return repository.save(budget);
+                .map(existing -> {
+                    existing.setMontant(updatedBudget.getMontant());
+                    existing.setEnum(updatedBudget.getEnum());
+                    existing.setDate(updatedBudget.getDate());
+                    return repository.save(existing);
                 });
-
     }
-
 }
