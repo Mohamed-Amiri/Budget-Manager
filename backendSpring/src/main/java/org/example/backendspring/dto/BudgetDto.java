@@ -15,9 +15,8 @@ import java.util.Date;
 public class BudgetDto {
     private Long id;
     private double montant;
-    private String Enum;
+    private String enumValue;
     private Date date;
-
 
 
     public Long getId() {
@@ -37,11 +36,11 @@ public class BudgetDto {
     }
 
     public String getEnum() {
-        return Enum;
+        return enumValue;
     }
 
     public void setEnum(String anEnum) {
-        Enum = anEnum;
+        enumValue = anEnum;
     }
 
     public Date getDate() {

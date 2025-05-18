@@ -38,11 +38,11 @@ public class budget {
         this.montant = montant;
     }
 
-    public String getEnum() {
+    public String getenumValue() {
         return Enum;
     }
 
-    public void setEnum(String anEnum) {
+    public void setenumValue(String anEnum) {
         Enum = anEnum;
     }
 

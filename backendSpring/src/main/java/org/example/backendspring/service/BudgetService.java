@@ -45,7 +45,7 @@ public class BudgetService {
         return repository.findById(id)
                 .map(budget -> {
                     budget.setMontant(bg.getMontant());
-                    budget.setEnum(bg.getEnum());
+                    budget.setEnum(bg.getenumValue());
                     budget.setDate(bg.getDate());
                     return repository.save(budget);
                 });

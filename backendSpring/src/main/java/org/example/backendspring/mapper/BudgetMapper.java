@@ -9,7 +9,7 @@ public class BudgetMapper {
         return BudgetDto.builder()
                 .id(entity.getId())
                 .montant(entity.getMontant())
-                .Enum(entity.getEnum())
+                .enumValue(entity.getEnum())
                 .date(entity.getDate())
                 .build();
     }
